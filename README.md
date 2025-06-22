@@ -59,12 +59,18 @@ The server will start on `http://localhost:8080`
 cd client
 ```
 
-2. Install dependencies:
+2. Create a `.env` file in the client directory:
+```bash
+# API Configuration
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+3. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+4. Start the development server:
 ```bash
 npm run dev
 ```
@@ -140,6 +146,15 @@ chessgpt-app/
 - React Chessboard
 - Axios for API calls
 
+## Environment Variables
+
+### Backend (.env in server directory)
+- `GEMINI_KEY`: Your Google Gemini API key (required)
+- `PORT`: Server port (default: 8080)
+
+### Frontend (.env in client directory)
+- `VITE_API_BASE_URL`: Base URL for the API server (default: http://localhost:8080)
+
 ## Troubleshooting
 
 ### Common Issues
@@ -148,12 +163,13 @@ chessgpt-app/
 2. **Client can't connect to server**: Ensure the server is running on port 8080
 3. **CORS errors**: The server is configured to allow all origins for development
 4. **AI moves are slow**: This is normal for AI responses, especially on higher difficulty levels
+5. **API connection issues**: Check that `VITE_API_BASE_URL` is set correctly in your client `.env` file
 
 ### Getting a Gemini API Key
 
 1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Create a new API key
-3. Add it to your `.env` file as `GEMINI_KEY`
+3. Add it to your server `.env` file as `GEMINI_KEY`
 
 ## Development
 
